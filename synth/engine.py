@@ -45,8 +45,6 @@ Deterministic — same input/patch = same sound file
 '''
 
 import numpy as np
-import wave
-import os
 
 class TimeBase:
     #Sample rate is going to be a fixed value

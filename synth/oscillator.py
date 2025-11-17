@@ -27,3 +27,29 @@ Must be deterministic (same settings → same sound)
 
 Must update phase continuously (no jumps at block boundaries)
 '''
+from abc import ABC, abstractmethod
+
+import numpy as np, math
+from engine import TimeBase
+
+
+class Wave(ABC):
+
+    def __init__(self, frequency):
+        self.frequency = frequency
+
+    #Making abstract method so subclasses
+    #must implement generate
+    @abstractmethod
+    def generate(time_array):
+        raise NotImplementedError
+    
+    
+class SineWave(Wave):
+        
+        def generate(self, time_array):
+             phase = 2 * math.pi * self.frequency * time_array
+
+             wave = np.sin(phase)
+
+             return wave
