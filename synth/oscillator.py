@@ -39,17 +39,20 @@ class Wave(ABC):
         self.frequency = frequency
 
     #Making abstract method so subclasses
-    #must implement generate
+    #must implement generate()
     @abstractmethod
-    def generate(time_array):
+    def generate(self, time_array):
         raise NotImplementedError
     
-    
+#inhereting from Wave for time array and frequency
 class SineWave(Wave):
+
+    def __init__(self, frequency): # not necessay for now but good practice
+         super().__init__(frequency)
         
-        def generate(self, time_array):
-             phase = 2 * math.pi * self.frequency * time_array
+    def generate(self, time_array):
+            phase = 2 * math.pi * self.frequency * time_array
 
-             wave = np.sin(phase)
+            wave = np.sin(phase)
 
-             return wave
+            return wave

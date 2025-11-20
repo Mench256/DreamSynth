@@ -63,3 +63,16 @@ class TimeBase:
         time_array = index_array / self.sample_rate
 
         return time_array
+    
+class Engine:
+    def __init__(self, sample_rate, module):
+        self.timebase = TimeBase(sample_rate)
+        self.module = module # this is going to be the sine wave
+
+        def render(self, duration):
+            time_array = self.timebase.timefunc(duration)
+            audio = self.module.generate(time_array)
+            return audio
+
+
+
