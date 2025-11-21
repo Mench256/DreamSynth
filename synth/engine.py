@@ -70,7 +70,10 @@ class Engine:
         self.module = module # this is going to be the sine wave
 
         def render(self, duration):
-            time_array = self.timebase.timefunc(duration)
+            #calling tim_func and giving it duration
+            #
+            time_array = self.timebase.time_func(duration)
+
             audio = self.module.generate(time_array)
             return audio
 
